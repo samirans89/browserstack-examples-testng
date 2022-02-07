@@ -10,7 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
 - task: BrowserStackConfig@0
   inputs:
     BrowserStackServiceEndPoint: 'BStack Demo Account'
@@ -26,8 +25,6 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-
-
 
 - script: |
     mvn clean test -P bstack-parallel
