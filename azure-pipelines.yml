@@ -18,6 +18,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: clean test -P bstack-parallel
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -26,9 +27,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 
-- script: |
-    mvn clean test -P bstack-parallel
-    displayName: 'Test build and execute'
+
 
 - task: PublishTestResults@2
   inputs:
